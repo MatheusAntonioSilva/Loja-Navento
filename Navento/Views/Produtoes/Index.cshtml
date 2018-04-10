@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Navento.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <main role="main">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Navento Commerce</h1>
+                <p class="lead text-muted">Encontre os melhores produtos com a gente! </p>
+            </div>
+        </section>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model) {
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.Nome)</p><br>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.PrecoUnitario)</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Visualizar</a> 
+                                        </div>
+                                        <small class="text-muted">9 mins</small>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+
+    </main>
